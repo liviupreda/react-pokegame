@@ -1,7 +1,7 @@
 .Pokecard {
   background: #777;
   width: 200px;
-  margin: 0 20px;
+  margin: 20px auto;
   border-radius: 20px;
 }
 
