@@ -6,7 +6,7 @@ class Pokecard extends Component {
     const { name, type, exp, imgSrc } = this.props;
     return (
       <div className='Pokecard'>
-        <h1 className='Pokecard-title'>{name}</h1>
+        <h1 className='Pokecard-name'>{name}</h1>
         <img src={imgSrc} alt='poke' />
         <p>Type: {type}</p>
         <p>EXP: {exp}</p>

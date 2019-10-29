@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Pokecard from './Pokecard';
 import './Pokedex.css';
 
+const pokePicsLink =
+  'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/';
+
 function padId(id) {
   if (id < 10) return '00' + id;
   else if (id < 100) return '0' + id;
@@ -27,9 +30,7 @@ class Pokedex extends Component {
                 name={el.name}
                 type={el.type}
                 exp={el.base_experience}
-                imgSrc={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padId(
-                  el.id
-                )}.png`}
+                imgSrc={`${pokePicsLink}${padId(el.id)}.png`}
               />
             </div>
           );
