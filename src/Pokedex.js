@@ -11,6 +11,12 @@ function padId(id) {
 class Pokedex extends Component {
   render() {
     const { array, totalExp, isWinner } = this.props;
+    let gameResult;
+    if (isWinner) {
+      gameResult = <h1 className='Pokedex-winner'>You are the WINNER !!!</h1>;
+    } else {
+      gameResult = <h1 className='Pokedex-loser'>Better luck next time !!!</h1>;
+    }
     return (
       <div className='Pokedex'>
         {array.map((el, i) => {
@@ -29,7 +35,7 @@ class Pokedex extends Component {
           );
         })}
         <p>Total Experience: {totalExp}</p>
-        <h2>You {isWinner ? 'WIN!!' : 'LOSE!!'}</h2>
+        {gameResult}
       </div>
     );
   }

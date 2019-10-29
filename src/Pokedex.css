@@ -5,3 +5,11 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.Pokedex-winner {
+  color: green;
+}
+
+.Pokedex-loser {
+  color: red;
+}
