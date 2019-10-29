@@ -23,13 +23,21 @@ function shuffleArray(array) {
   return array;
 }
 
+function calcExp(array) {
+  let sum = 0;
+  array.forEach(el => (sum += el.base_experience));
+  return sum;
+}
+
 class Pokegame extends Component {
   render() {
     shuffleArray(pokemons);
+    const playerOneDeck = pokemons.slice(0, 4);
+    const playerTwoDeck = pokemons.slice(4, 8);
     return (
       <div>
-        <Pokedex array={pokemons.slice(0, 4)} />
-        <Pokedex array={pokemons.slice(4, 8)} />
+        <Pokedex array={playerOneDeck} totalExp={calcExp(playerOneDeck)} />
+        <Pokedex array={playerTwoDeck} totalExp={calcExp(playerTwoDeck)} />
       </div>
     );
   }

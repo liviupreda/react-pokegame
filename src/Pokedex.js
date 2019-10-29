@@ -10,12 +10,10 @@ function padId(id) {
 
 class Pokedex extends Component {
   render() {
-    let expCounter = 0;
-    const { array } = this.props;
+    const { array, totalExp } = this.props;
     return (
       <div className='Pokedex'>
         {array.map((el, i) => {
-          expCounter += el.base_experience;
           return (
             <div key={i}>
               <Pokecard
@@ -30,7 +28,7 @@ class Pokedex extends Component {
             </div>
           );
         })}
-        <p>Total Experience: {expCounter}</p>
+        <p>Total Experience: {totalExp}</p>
       </div>
     );
   }
