@@ -32,9 +32,11 @@ function shuffleArray(array) {
 class Pokedex extends Component {
   render() {
     shuffleArray(pokemons);
+    let expCounter = 0;
     return (
       <div className='Pokedex'>
         {pokemons.slice(0, 4).map(el => {
+          expCounter += el.base_experience;
           return (
             <>
               <Pokecard
@@ -49,6 +51,7 @@ class Pokedex extends Component {
             </>
           );
         })}
+        <p>Total Experience: {expCounter}</p>
       </div>
     );
   }
