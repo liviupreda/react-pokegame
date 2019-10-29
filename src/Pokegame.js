@@ -3,6 +3,10 @@ import Pokedex from './Pokedex';
 import { pokemons } from './pokemons';
 import './Pokegame.css';
 
+shuffleArray(pokemons);
+const playerOneDeck = pokemons.slice(0, 4);
+const playerTwoDeck = pokemons.slice(4, 8);
+
 function shuffleArray(array) {
   let currentIndex = array.length,
     temporaryValue,
@@ -29,15 +33,25 @@ function calcExp(array) {
   return sum;
 }
 
+function checkWinner() {
+  if (calcExp(playerOneDeck) > calcExp(playerTwoDeck)) return 1;
+  else return 2;
+}
+
 class Pokegame extends Component {
   render() {
-    shuffleArray(pokemons);
-    const playerOneDeck = pokemons.slice(0, 4);
-    const playerTwoDeck = pokemons.slice(4, 8);
     return (
       <div>
-        <Pokedex array={playerOneDeck} totalExp={calcExp(playerOneDeck)} />
-        <Pokedex array={playerTwoDeck} totalExp={calcExp(playerTwoDeck)} />
+        <Pokedex
+          array={playerOneDeck}
+          totalExp={calcExp(playerOneDeck)}
+          isWinner={checkWinner() === 1 ? true : false}
+        />
+        <Pokedex
+          array={playerTwoDeck}
+          totalExp={calcExp(playerTwoDeck)}
+          isWinner={checkWinner() === 2 ? true : false}
+        />
       </div>
     );
   }
