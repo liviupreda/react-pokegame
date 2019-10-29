@@ -35,10 +35,10 @@ class Pokedex extends Component {
     let expCounter = 0;
     return (
       <div className='Pokedex'>
-        {pokemons.slice(0, 4).map(el => {
+        {pokemons.slice(0, 4).map((el, i) => {
           expCounter += el.base_experience;
           return (
-            <>
+            <div key={i}>
               <Pokecard
                 id={el.id}
                 name={el.name}
@@ -48,7 +48,7 @@ class Pokedex extends Component {
                   el.id
                 )}.png`}
               />
-            </>
+            </div>
           );
         })}
         <p>Total Experience: {expCounter}</p>
