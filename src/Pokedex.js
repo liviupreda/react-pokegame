@@ -24,7 +24,7 @@ class Pokedex extends Component {
       <div className='Pokedex'>
         {array.map((el, i) => {
           return (
-            <div key={i}>
+            <div key={i} className='Pokedex-card'>
               <Pokecard
                 id={el.id}
                 name={el.name}
