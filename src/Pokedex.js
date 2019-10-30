@@ -22,6 +22,8 @@ class Pokedex extends Component {
     }
     return (
       <div className='Pokedex'>
+        <p>Total Experience: {totalExp}</p>
+        {gameResult}
         {array.map((el, i) => {
           return (
             <div key={i} className='Pokedex-card'>
@@ -35,8 +37,6 @@ class Pokedex extends Component {
             </div>
           );
         })}
-        <p>Total Experience: {totalExp}</p>
-        {gameResult}
       </div>
     );
   }
